@@ -7,6 +7,8 @@ import (
 	"errors"
 	"os"
 )
+
+// RarReader is the entry point for using an archive reader on a Rar archive
 var RarReader rarFormatReader
 
 type rarFormatEntry struct {

@@ -6,6 +6,7 @@ import (
 	"os"
 )
 
+// ArchiveReader is a Generic Archive Reader interface
 type ArchiveReader interface {
 	OpenPath(path string) error
 	Open(io.Reader) error
@@ -13,6 +14,7 @@ type ArchiveReader interface {
 	Close() error
 }
 
+// Entry is the generic archive entry interface when reading archives
 type Entry interface {
 	Name() string
 	IsDirectory() bool
@@ -39,4 +41,5 @@ func (entry nilEntry) Write(output io.Writer) error {
 	return errors.New("nil")
 }
 
+// NilEntry is the null entry when dealing with Entry objects
 var NilEntry = nilEntry{}
